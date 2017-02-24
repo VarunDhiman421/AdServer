@@ -1,0 +1,1 @@
+java -jar jetty-runner-9.4.2.v20170220.jar AdServer.war
