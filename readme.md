@@ -37,3 +37,15 @@ Try the following test cases
  - Try and fetch a valid record
 
 ##### The application also contains junit test cases that can be run from eclipse
+
+### Scale Up
+The servlet 3 architecture used in the application is somewhat hard to maintain and scale. Addition of a new action (service) would be much easier if done via RESTful style using jersey implementation.
+<p>For persistence I had 3 choices</p>
+ - Relational database like sqllite or mysql *More reliable but longer setup time and harder to bundle*
+ - Store an object inside the server context *Easiest to implement but data is lost on server shutdown*
+ - Persist json to file system *Data persists after jvm exit but harder data manipulation*
+ 
+ I decided to stick with 3 because it seemed it met both the other approaches midway. As the application becomes bigger, a DB with hibernate layer would be serve the purpose better. 
+ <p>For multi-campaign support for partner, we need to have to separate tables partner and campaign where partnerID(number) can be used as
+ a foreign key campaign table</p>
+ 
